@@ -115,7 +115,7 @@ function Lightbox({
       {/* Image + caption */}
       <div className="flex flex-col items-center gap-4 max-w-[88vw]"
         onClick={(e) => e.stopPropagation()}>
-        <img src={img.src} alt={img.alt} className="rounded-2xl object-contain shadow-2xl"
+        <Image src={img.src} alt={img.alt} width={880} height={720} className="rounded-2xl object-contain shadow-2xl"
           style={{ maxHeight: "72vh", maxWidth: "88vw" }} />
         <div className="flex items-center gap-3">
           <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-[11px] font-bold tracking-wide uppercase">
@@ -132,7 +132,7 @@ function Lightbox({
           <button key={i} onClick={(e) => e.stopPropagation()}
             className={`relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all duration-200 cursor-default ${i === index ? "border-amber-500 scale-110" : "border-transparent opacity-40 hover:opacity-70"
               }`}>
-            <img src={im.thumb} alt={im.alt} className="w-full h-full object-cover" />
+            <Image src={im.thumb} alt={im.alt} width={48} height={48} className="w-full h-full object-cover" />
           </button>
         ))}
       </div>

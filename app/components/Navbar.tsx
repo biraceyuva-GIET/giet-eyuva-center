@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "../context/ThemeContext";
 import DNAStage from "./DNAStage";
 
@@ -39,7 +40,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-[72px] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-18 transition-all duration-300 ${
         scrolled
           ? theme === "dark"
             ? "bg-[#0a1628]/95 backdrop-blur-md border-b border-white/10"
@@ -52,7 +53,7 @@ export default function Navbar() {
       {/* Logo */}
       <Link href="/" className={`flex items-center gap-3 no-underline ${theme === 'dark' ? 'text-white' : 'text-[#1f2937]'}`}>
         <div className="w-35 h-10 flex items-center justify-center text-[#0a1628] font-black text-lg">
-          <img src="/partners/logo.webp" alt="Logo" className="w-full h-full object-cover" />  
+          <Image src="/partners/logo.webp" alt="Logo" width={140} height={40} className="w-full h-full object-cover" />  
         </div>
       </Link>
 
@@ -125,7 +126,7 @@ export default function Navbar() {
 
         <a
           href="#programs"
-          className="inline-flex items-center px-5 py-[10px] rounded-lg bg-amber-500 text-[#0a1628] text-[14px] font-bold no-underline transition-all duration-200 hover:bg-amber-400 hover:-translate-y-px active:scale-95"
+          className="inline-flex items-center px-5 py-2.5 rounded-lg bg-amber-500 text-[#0a1628] text-[14px] font-bold no-underline transition-all duration-200 hover:bg-amber-400 hover:-translate-y-px active:scale-95"
         >
           Apply for Fellowship
         </a>
@@ -133,24 +134,24 @@ export default function Navbar() {
 
       {/* Mobile hamburger */}
       <button
-        className="lg:hidden flex flex-col gap-[5px] p-2 cursor-pointer bg-transparent border-none"
+        className="lg:hidden flex flex-col gap-1.25 p-2 cursor-pointer bg-transparent border-none"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >
-        <span className={`block w-5 h-[2px] transition-all duration-300 ${theme === 'dark' ? 'bg-white' : 'bg-[#1f2937]'} ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-        <span className={`block w-5 h-[2px] transition-all duration-300 ${theme === 'dark' ? 'bg-white' : 'bg-[#1f2937]'} ${menuOpen ? "opacity-0" : ""}`} />
-        <span className={`block w-5 h-[2px] transition-all duration-300 ${theme === 'dark' ? 'bg-white' : 'bg-[#1f2937]'} ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+        <span className={`block w-5 h-0.5 transition-all duration-300 ${theme === 'dark' ? 'bg-white' : 'bg-[#1f2937]'} ${menuOpen ? "rotate-45 translate-y-1.75" : ""}`} />
+        <span className={`block w-5 h-0.5 transition-all duration-300 ${theme === 'dark' ? 'bg-white' : 'bg-[#1f2937]'} ${menuOpen ? "opacity-0" : ""}`} />
+        <span className={`block w-5 h-0.5 transition-all duration-300 ${theme === 'dark' ? 'bg-white' : 'bg-[#1f2937]'} ${menuOpen ? "-rotate-45 -translate-y-1.75" : ""}`} />
       </button>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className={`absolute top-[72px] left-0 right-0 border-b px-6 py-4 lg:hidden overflow-hidden ${
+        <div className={`absolute top-18 left-0 right-0 border-b px-6 py-4 lg:hidden overflow-hidden ${
           theme === 'dark'
             ? 'bg-[#0d1f3c]/95 backdrop-blur-md border-white/10'
             : 'bg-white/95 backdrop-blur-md border-black/10'
         }`}>
           {/* DNA Helix background animation on the right side */}
-          <div className="absolute right-[30px] top-[20px] pointer-events-none opacity-100 scale-[0.4] origin-top-right z-0">
+          <div className="absolute right-7.5 top-5 pointer-events-none opacity-100 scale-[0.4] origin-top-right z-0">
             <DNAStage />
           </div>
 
